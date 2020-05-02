@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		CE369182245D0AC100817546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369181245D0AC100817546 /* AppDelegate.swift */; };
 		CE369184245D0AC100817546 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369183245D0AC100817546 /* SceneDelegate.swift */; };
-		CE369186245D0AC100817546 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369185245D0AC100817546 /* ViewController.swift */; };
+		CE369186245D0AC100817546 /* S1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369185245D0AC100817546 /* S1VC.swift */; };
 		CE369189245D0AC200817546 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE369187245D0AC200817546 /* Main.storyboard */; };
 		CE36918B245D0AC300817546 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE36918A245D0AC300817546 /* Assets.xcassets */; };
 		CE36918E245D0AC300817546 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE36918C245D0AC300817546 /* LaunchScreen.storyboard */; };
+		CE369196245D11BC00817546 /* S2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369195245D11BC00817546 /* S2VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE36917E245D0AC100817546 /* UIScrollView50220.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollView50220.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE369181245D0AC100817546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE369183245D0AC100817546 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE369185245D0AC100817546 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE369185245D0AC100817546 /* S1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S1VC.swift; sourceTree = "<group>"; };
 		CE369188245D0AC200817546 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE36918A245D0AC300817546 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE36918D245D0AC300817546 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE36918F245D0AC300817546 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE369195245D11BC00817546 /* S2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S2VC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		CE369180245D0AC100817546 /* UIScrollView50220 */ = {
 			isa = PBXGroup;
 			children = (
+				CE369197245D11F300817546 /* M */,
+				CE369198245D11FA00817546 /* V */,
+				CE369199245D120300817546 /* C */,
 				CE369181245D0AC100817546 /* AppDelegate.swift */,
 				CE369183245D0AC100817546 /* SceneDelegate.swift */,
-				CE369185245D0AC100817546 /* ViewController.swift */,
 				CE369187245D0AC200817546 /* Main.storyboard */,
 				CE36918A245D0AC300817546 /* Assets.xcassets */,
 				CE36918C245D0AC300817546 /* LaunchScreen.storyboard */,
 				CE36918F245D0AC300817546 /* Info.plist */,
 			);
 			path = UIScrollView50220;
+			sourceTree = "<group>";
+		};
+		CE369197245D11F300817546 /* M */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		CE369198245D11FA00817546 /* V */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		CE369199245D120300817546 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				CE369185245D0AC100817546 /* S1VC.swift */,
+				CE369195245D11BC00817546 /* S2VC.swift */,
+			);
+			path = C;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE369186245D0AC100817546 /* ViewController.swift in Sources */,
+				CE369186245D0AC100817546 /* S1VC.swift in Sources */,
 				CE369182245D0AC100817546 /* AppDelegate.swift in Sources */,
 				CE369184245D0AC100817546 /* SceneDelegate.swift in Sources */,
+				CE369196245D11BC00817546 /* S2VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PDY29GF949;
 				INFOPLIST_FILE = UIScrollView50220/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +323,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.appl.leslie.UIScrollView50220;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PDY29GF949;
 				INFOPLIST_FILE = UIScrollView50220/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.appl.leslie.UIScrollView50220;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
