@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE167C70245DA9C60020352E /* Z1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167C6F245DA9C60020352E /* Z1VC.swift */; };
+		CE167C72245DB48E0020352E /* Z2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167C71245DB48E0020352E /* Z2VC.swift */; };
 		CE369182245D0AC100817546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369181245D0AC100817546 /* AppDelegate.swift */; };
 		CE369184245D0AC100817546 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369183245D0AC100817546 /* SceneDelegate.swift */; };
 		CE369186245D0AC100817546 /* S1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369185245D0AC100817546 /* S1VC.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE167C6F245DA9C60020352E /* Z1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z1VC.swift; sourceTree = "<group>"; };
+		CE167C71245DB48E0020352E /* Z2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z2VC.swift; sourceTree = "<group>"; };
 		CE36917E245D0AC100817546 /* UIScrollView50220.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollView50220.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE369181245D0AC100817546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE369183245D0AC100817546 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 			children = (
 				CE369185245D0AC100817546 /* S1VC.swift */,
 				CE369195245D11BC00817546 /* S2VC.swift */,
+				CE167C6F245DA9C60020352E /* Z1VC.swift */,
+				CE167C71245DB48E0020352E /* Z2VC.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -167,7 +173,9 @@
 			files = (
 				CE369186245D0AC100817546 /* S1VC.swift in Sources */,
 				CE369182245D0AC100817546 /* AppDelegate.swift in Sources */,
+				CE167C72245DB48E0020352E /* Z2VC.swift in Sources */,
 				CE369184245D0AC100817546 /* SceneDelegate.swift in Sources */,
+				CE167C70245DA9C60020352E /* Z1VC.swift in Sources */,
 				CE369196245D11BC00817546 /* S2VC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
