@@ -37,6 +37,7 @@ class Z2VC: UIViewController {
 
 //Adding subview to the scroll view
         mainScroll.contentSize = imageView.frame.size
+        mainScroll.zoomScale = minScale
         mainScroll.addSubview(imageView)
     }
     
