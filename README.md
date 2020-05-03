@@ -16,9 +16,13 @@
     view.layoutIfNeeded()
 
 ## isPageEnabled property
-    Organizing the content area in pages
+- Organizing the content area in pages
     
 ## UIPageControl class
-    Calculating the page
+- Calculating the page
+
+## zoom each page individually
+- Scroll Views may be created inside other Scroll Views
+
 
 
