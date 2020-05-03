@@ -16,6 +16,9 @@
     view.layoutIfNeeded()
 
 ## isPageEnabled property
+    Organizing the content area in pages
+    
+## UIPageControl class
+    Calculating the page
 
-## PageControl
 

@@ -168,28 +168,49 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="79g-ld-bJw">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="54" width="414" height="724"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Srd-pX-Neg"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="rx8-AE-MHh"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="EO9-pc-8fr">
+                                <rect key="frame" x="0.0" y="776" width="414" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="4Od-x8-Hnx"/>
+                                </constraints>
+                            </pageControl>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOC-Uy-YXG">
+                                <rect key="frame" x="0.0" y="776" width="414" height="37"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="ozU-by-R9Y"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="79g-ld-bJw" firstAttribute="leading" secondItem="j24-bl-DUC" secondAttribute="leading" id="07W-y3-RLo"/>
                             <constraint firstItem="79g-ld-bJw" firstAttribute="top" secondItem="j24-bl-DUC" secondAttribute="top" id="C26-rA-a4u"/>
-                            <constraint firstItem="79g-ld-bJw" firstAttribute="bottom" secondItem="j24-bl-DUC" secondAttribute="bottom" id="RNp-yj-sm3"/>
+                            <constraint firstItem="mOC-Uy-YXG" firstAttribute="top" secondItem="EO9-pc-8fr" secondAttribute="top" id="Y6j-94-kCV"/>
                             <constraint firstItem="79g-ld-bJw" firstAttribute="trailing" secondItem="j24-bl-DUC" secondAttribute="trailing" id="YIP-5s-Noz"/>
+                            <constraint firstItem="j24-bl-DUC" firstAttribute="bottom" secondItem="79g-ld-bJw" secondAttribute="bottom" id="cF1-s5-sDK"/>
+                            <constraint firstItem="EO9-pc-8fr" firstAttribute="trailing" secondItem="j24-bl-DUC" secondAttribute="trailing" id="gIt-9S-HBD"/>
+                            <constraint firstItem="mOC-Uy-YXG" firstAttribute="bottom" secondItem="EO9-pc-8fr" secondAttribute="bottom" id="iNM-af-YQU"/>
+                            <constraint firstItem="mOC-Uy-YXG" firstAttribute="leading" secondItem="EO9-pc-8fr" secondAttribute="leading" id="n4r-DC-H5C"/>
+                            <constraint firstItem="mOC-Uy-YXG" firstAttribute="trailing" secondItem="EO9-pc-8fr" secondAttribute="trailing" id="raE-yv-dy4"/>
+                            <constraint firstItem="EO9-pc-8fr" firstAttribute="leading" secondItem="j24-bl-DUC" secondAttribute="leading" id="t9T-yg-mKh"/>
+                            <constraint firstItem="EO9-pc-8fr" firstAttribute="bottom" secondItem="j24-bl-DUC" secondAttribute="bottom" id="tTA-KP-fqm"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j24-bl-DUC"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="P1" image="pencil.circle" catalog="system" id="twC-1x-u3O"/>
                     <connections>
                         <outlet property="mainScroll" destination="79g-ld-bJw" id="RHn-yz-Xrh"/>
+                        <outlet property="pageCounter" destination="EO9-pc-8fr" id="2yg-td-v1l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TYV-lK-hII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2626" y="805"/>
+            <point key="canvasLocation" x="2624.6376811594205" y="804.91071428571422"/>
         </scene>
         <!--P2-->
         <scene sceneID="Svf-Kd-2F6">

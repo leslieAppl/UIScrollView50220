@@ -11,12 +11,19 @@ import UIKit
 class P1: UIViewController {
 
     @IBOutlet weak var mainScroll: UIScrollView!
+    @IBOutlet weak var pageCounter: UIPageControl!
     var imageView: UIImageView!
+    var page: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let images = ["spot1", "spot2", "spot3", "home1", "home2", "home3", "home4", "home5"]
+        pageCounter.numberOfPages = images.count
+        pageCounter.pageIndicatorTintColor = .black
+        pageCounter.currentPageIndicatorTintColor = .white
+        
+        mainScroll.delegate = self
         mainScroll.isPagingEnabled = true
         
         view.setNeedsLayout()
@@ -24,14 +31,13 @@ class P1: UIViewController {
         let scrollWidth = mainScroll.frame.size.width
         let scrollHeight = mainScroll.frame.size.height
 
-//config page control
+//Organizing the content area in pages
         var posX: CGFloat = 0
         
         for img in images {
             imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
             imageView.image = UIImage(named: img)
-//            imageView.contentMode = .scaleAspectFill
-            imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
             
             mainScroll.addSubview(imageView)
@@ -39,7 +45,16 @@ class P1: UIViewController {
 
             posX = posX + scrollWidth
         }
-        
+    }
+}
 
+extension P1: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//Calculating the page
+        let pageWidth = mainScroll.frame.size.width
+        let getPage = round(mainScroll.contentOffset.x/pageWidth)
+        let currentPage = Int(getPage)
+        page = currentPage
+        pageCounter.currentPage = page
     }
 }
