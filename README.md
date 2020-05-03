@@ -22,23 +22,11 @@
 - Calculating the page
 
 ## reset the page size when rotating the screen
-        override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-            let page = self.page
-            
-            if UIDevice.current.orientation.isLandscape {
-                            ... ...
-            } else {
-                            ... ...
-            }
-            
-            self.page = page
-        }
-
 - Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method. Because, rotating the screen led to change to size of scroll view. Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
-- - Removeing subviews from scroll view
-- - Switching width and height after rotating to landscape mode
-- - Organizing the content area in pages
-- - Scroll to page after resizing the page
+- reversing scrollWidth and scrollHeight
+- Removeing subviews from scroll view
+- Organizing the content area in pages
+- Scroll to page after resizing the page
 - Return page value after reseting the page size when rotating the screen
 
 ## Remove subViews from scroll view
@@ -55,5 +43,5 @@ mainScroll.scrollRectToVisible(frame, animated: true)
 ## zoom each page individually
 - Scroll Views may be created inside other Scroll Views
 
-
+## Refactor processing
 

@@ -32,8 +32,50 @@ class P1: UIViewController {
         
         view.setNeedsLayout()
         view.layoutIfNeeded()
-        scrollWidth = mainScroll.frame.size.width
-        scrollHeight = mainScroll.frame.size.height
+        
+        //detecting scrollWidth and scrollHeight
+        switch UIDevice.current.orientation {
+        case .portrait:
+            print("portrait")
+            print("mainScroll.width: \(mainScroll.frame.size.width)")
+            print("mainScroll.height: \(mainScroll.frame.size.height)")
+            print("view.width: \(view.frame.size.width)")
+            print("view.height: \(view.frame.size.height)")
+            self.scrollWidth = mainScroll.frame.size.width
+            self.scrollHeight = mainScroll.frame.size.height
+        case .portraitUpsideDown:
+            print("portraitUpsideDown")
+            print("mainScroll.width: \(mainScroll.frame.size.width)")
+            print("mainScroll.height: \(mainScroll.frame.size.height)")
+            print("view.width: \(view.frame.size.width)")
+            print("view.height: \(view.frame.size.height)")
+            self.scrollWidth = mainScroll.frame.size.width
+            self.scrollHeight = mainScroll.frame.size.height
+        case .landscapeLeft:
+            print("landscapeLeft")
+            print("mainScroll.width: \(mainScroll.frame.size.width)")
+            print("mainScroll.height: \(mainScroll.frame.size.height)")
+            print("view.width: \(view.frame.size.width)")
+            print("view.height: \(view.frame.size.height)")
+            self.scrollWidth = mainScroll.frame.size.width
+            self.scrollHeight = mainScroll.frame.size.height
+        case .landscapeRight:
+            print("landscapeRight")
+            print("mainScroll.width: \(mainScroll.frame.size.width)")
+            print("mainScroll.height: \(mainScroll.frame.size.height)")
+            print("view.width: \(view.frame.size.width)")
+            print("view.height: \(view.frame.size.height)")
+            self.scrollWidth = mainScroll.frame.size.width
+            self.scrollHeight = mainScroll.frame.size.height
+        default:
+            print("default")
+            print("mainScroll.width: \(mainScroll.frame.size.width)")
+            print("mainScroll.height: \(mainScroll.frame.size.height)")
+            print("view.width: \(view.frame.size.width)")
+            print("view.height: \(view.frame.size.height)")
+            self.scrollWidth = mainScroll.frame.size.width
+            self.scrollHeight = mainScroll.frame.size.height
+        }
         
 //Organizing the content area in pages
         var posX: CGFloat = 0
@@ -66,83 +108,78 @@ extension P1: UIScrollViewDelegate {
 //MARK: - reset the page size when rotating the screen
 extension P1 {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
-//Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method
-//Because, rotating the screen led to change to size of scroll view.
-//Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
+        print("rotated")
+        //Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method
+        //Because, rotating the screen led to change to size of scroll view.
+        //Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
         let page = self.page
         
-        if UIDevice.current.orientation.isLandscape {
-//Removeing subviews from scroll view
-            let subViews = mainScroll.subviews
-            for subView in subViews {
-                subView.removeFromSuperview()
-            }
+        //reversing scrollWidth and scrollHeight
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        switch UIDevice.current.orientation {
+        case .portrait:
+            print("portrait")
+            print("width: \(mainScroll.frame.size.width)")
+            print("height: \(mainScroll.frame.size.height)")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        case .portraitUpsideDown:
+            print("portraitUpsideDown")
+            print("width: \(mainScroll.frame.size.width)")
+            print("height: \(mainScroll.frame.size.height)")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        case .landscapeLeft:
+            print("landscapeLeft")
+            print("width: \(mainScroll.frame.size.width)")
+            print("height: \(mainScroll.frame.size.height)")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        case .landscapeRight:
+            print("landscapeRight")
+            print("width: \(mainScroll.frame.size.width)")
+            print("height: \(mainScroll.frame.size.height)")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        default:
+            print("default")
+            print("width: \(mainScroll.frame.size.width)")
+            print("height: \(mainScroll.frame.size.height)")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        }
+        
+        //Removeing subviews from scroll view
+        let subViews = mainScroll.subviews
+        for subView in subViews {
+            subView.removeFromSuperview()
+        }
+        
+        //Organizing the content area in pages
+        var posX: CGFloat = 0
+        
+        for img in images {
             
-//Switching width and height after rotating to landscape mode
-            let scrollWidth: CGFloat = self.scrollHeight
-            let scrollHeight: CGFloat = self.scrollWidth
+            imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
+            imageView.image = UIImage(named: img)
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
             
-//Organizing the content area in pages
-            var posX: CGFloat = 0
+            mainScroll.addSubview(imageView)
+            mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
             
-            for img in images {
-                
-                imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
-                imageView.image = UIImage(named: img)
-                imageView.contentMode = .scaleAspectFill
-                imageView.clipsToBounds = true
-                
-                mainScroll.addSubview(imageView)
-                mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
-                
-                posX = posX + scrollWidth
-            }
-
-//Scroll to page after resizing the page
-            var frame = mainScroll.frame
-            frame.origin.x = scrollWidth*CGFloat(page)
-            mainScroll.scrollRectToVisible(frame, animated: false)
-            pageCounter.currentPage = page
-
-        } else {
-//Removeing subviews from scroll view
-            let subViews = mainScroll.subviews
-            for subView in subViews {
-                subView.removeFromSuperview()
-            }
-
-//Switching width and height after rotating to landscape mode
-            let scrollWidth: CGFloat = self.scrollWidth
-            let scrollHeight: CGFloat = self.scrollHeight
-
-//Organizing the content area in pages
-            var posX: CGFloat = 0
-            
-            for img in images {
-                
-                imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
-                imageView.image = UIImage(named: img)
-                imageView.contentMode = .scaleAspectFill
-                imageView.clipsToBounds = true
-                
-                mainScroll.addSubview(imageView)
-                mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
-                
-                posX = posX + scrollWidth
-            }
-
-//Scroll to page after resizing the page
-            var frame = mainScroll.frame
-            frame.origin.x = scrollWidth*CGFloat(page)
-            mainScroll.scrollRectToVisible(frame, animated: false)
-            pageCounter.currentPage = page
-
-            }
-
-//Return page value after reseting the page size when rotating the screen
+            posX = posX + scrollWidth
+        }
+        
+        //Scroll to page after resizing the page
+        var frame = mainScroll.frame
+        frame.origin.x = scrollWidth*CGFloat(page)
+        mainScroll.scrollRectToVisible(frame, animated: false)
+        pageCounter.currentPage = page
+        
         self.page = page
     }
-        
+    
     
 }
