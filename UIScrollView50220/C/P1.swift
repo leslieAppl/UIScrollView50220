@@ -34,7 +34,7 @@ class P1: UIViewController {
         view.layoutIfNeeded()
         scrollWidth = mainScroll.frame.size.width
         scrollHeight = mainScroll.frame.size.height
-
+        
 //Organizing the content area in pages
         var posX: CGFloat = 0
         
@@ -66,42 +66,24 @@ extension P1: UIScrollViewDelegate {
 //MARK: - reset the page size when rotating the screen
 extension P1 {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        
+
+//Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method
+//Because, rotating the screen led to change to size of scroll view.
+//Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
+        let page = self.page
         
         if UIDevice.current.orientation.isLandscape {
-            print("isLandscape")
-//Switching width and height after rotating to landscape mode
-            let scrollWidth = self.scrollHeight!
-            let scrollHeight = self.scrollWidth!
-            
-//Organizing the content area in pages
-            var posX: CGFloat = 0
-            
-            for img in images {
-                
-                imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
-                imageView.image = UIImage(named: img)
-                imageView.contentMode = .scaleAspectFill
-                imageView.clipsToBounds = true
-                
-                mainScroll.addSubview(imageView)
-                mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
-                
-                posX = posX + scrollWidth
+//Removeing subviews from scroll view
+            let subViews = mainScroll.subviews
+            for subView in subViews {
+                subView.removeFromSuperview()
             }
             
-//Scroll to page after resizing the page
-            var frame = mainScroll.frame
-            frame.origin.x = scrollWidth*CGFloat(page)
-            mainScroll.scrollRectToVisible(frame, animated: true)
+//Switching width and height after rotating to landscape mode
+            let scrollWidth: CGFloat = self.scrollHeight
+            let scrollHeight: CGFloat = self.scrollWidth
             
-        } else {
-            print("isPortrait")
-            //Switching width and height after rotating to landscape mode
-            let scrollWidth = self.scrollWidth!
-            let scrollHeight = self.scrollHeight!
-            
-            //Organizing the content area in pages
+//Organizing the content area in pages
             var posX: CGFloat = 0
             
             for img in images {
@@ -120,9 +102,47 @@ extension P1 {
 //Scroll to page after resizing the page
             var frame = mainScroll.frame
             frame.origin.x = scrollWidth*CGFloat(page)
-            mainScroll.scrollRectToVisible(frame, animated: true)
-        }
-        
+            mainScroll.scrollRectToVisible(frame, animated: false)
+            pageCounter.currentPage = page
+
+        } else {
+//Removeing subviews from scroll view
+            let subViews = mainScroll.subviews
+            for subView in subViews {
+                subView.removeFromSuperview()
+            }
+
+//Switching width and height after rotating to landscape mode
+            let scrollWidth: CGFloat = self.scrollWidth
+            let scrollHeight: CGFloat = self.scrollHeight
+
+//Organizing the content area in pages
+            var posX: CGFloat = 0
+            
+            for img in images {
+                
+                imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
+                imageView.image = UIImage(named: img)
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
+                
+                mainScroll.addSubview(imageView)
+                mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
+                
+                posX = posX + scrollWidth
+            }
+
+//Scroll to page after resizing the page
+            var frame = mainScroll.frame
+            frame.origin.x = scrollWidth*CGFloat(page)
+            mainScroll.scrollRectToVisible(frame, animated: false)
+            pageCounter.currentPage = page
+
+            }
+
+//Return page value after reseting the page size when rotating the screen
+        self.page = page
     }
+        
     
 }

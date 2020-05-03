@@ -22,67 +22,29 @@
 - Calculating the page
 
 ## reset the page size when rotating the screen
-    extension P1 {
         override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-            
+            let page = self.page
             
             if UIDevice.current.orientation.isLandscape {
-                print("isLandscape")
-    //Switching width and height after rotating to landscape mode
-                let scrollWidth = self.scrollHeight!
-                let scrollHeight = self.scrollWidth!
-                
-    //Organizing the content area in pages
-                var posX: CGFloat = 0
-                
-                for img in images {
-                    
-                    imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
-                    imageView.image = UIImage(named: img)
-                    imageView.contentMode = .scaleAspectFill
-                    imageView.clipsToBounds = true
-                    
-                    mainScroll.addSubview(imageView)
-                    mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
-                    
-                    posX = posX + scrollWidth
-                }
-                
-    //Scroll to page after resizing the page
-                var frame = mainScroll.frame
-                frame.origin.x = scrollWidth*CGFloat(page)
-                mainScroll.scrollRectToVisible(frame, animated: true)
-                
+                            ... ...
             } else {
-                print("isPortrait")
-                //Switching width and height after rotating to landscape mode
-                let scrollWidth = self.scrollWidth!
-                let scrollHeight = self.scrollHeight!
-                
-                //Organizing the content area in pages
-                var posX: CGFloat = 0
-                
-                for img in images {
-                    
-                    imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
-                    imageView.image = UIImage(named: img)
-                    imageView.contentMode = .scaleAspectFill
-                    imageView.clipsToBounds = true
-                    
-                    mainScroll.addSubview(imageView)
-                    mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
-                    
-                    posX = posX + scrollWidth
-                }
-
-    //Scroll to page after resizing the page
-                var frame = mainScroll.frame
-                frame.origin.x = scrollWidth*CGFloat(page)
-                mainScroll.scrollRectToVisible(frame, animated: true)
+                            ... ...
             }
             
+            self.page = page
         }
-        
+
+- Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method. Because, rotating the screen led to change to size of scroll view. Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
+- - Removeing subviews from scroll view
+- - Switching width and height after rotating to landscape mode
+- - Organizing the content area in pages
+- - Scroll to page after resizing the page
+- Return page value after reseting the page size when rotating the screen
+
+## Remove subViews from scroll view
+    let subViews = self.scrollView.subviews
+    for subview in subViews{
+        subview.removeFromSuperview()
     }
 
 ## Scroll to page after resizing the page
