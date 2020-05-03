@@ -14,3 +14,8 @@
 ## To force the system to update the layout value when we need them
     view.setNeedsLayout()
     view.layoutIfNeeded()
+
+## isPageEnabled property
+
+## PageControl
+
