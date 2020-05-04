@@ -136,20 +136,10 @@ extension P1 {
             posX = posX + scrollWidth
         }
         
-            print("offSetX: \(mainScroll.contentOffset.x)")
-        
 //Scroll to page after resizing the page
         var frame = mainScroll.frame
         frame.origin.x = scrollWidth*CGFloat(page)
-            print("images.count: \(self.images.count)")
-            print("scroll to page: \(page)")
-            print("mainScroll.frame.origin.x: \(frame.origin.x)")
-        
         mainScroll.scrollRectToVisible(frame, animated: true)
         pageCounter.currentPage = page
-        
-        print("last Page: \(self.page)")
     }
-    
-    
 }

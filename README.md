@@ -28,7 +28,6 @@
 - Organizing the content area in pages
 - Scroll to page after resizing the page
 
-
 ## Remove subViews from scroll view
     let subViews = self.scrollView.subviews
     for subview in subViews{
@@ -43,5 +42,4 @@ mainScroll.scrollRectToVisible(frame, animated: true)
 ## zoom each page individually
 - Scroll Views may be created inside other Scroll Views
 
-## Refactor processing
 
