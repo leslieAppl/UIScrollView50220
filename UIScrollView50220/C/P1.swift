@@ -102,6 +102,7 @@ class P1: UIViewController {
             
             mainScroll.addSubview(imageView)
             mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
+            
             posX = posX + scrollWidth
         }
     }
