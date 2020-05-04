@@ -99,6 +99,7 @@ class P1: UIViewController {
             imageView.contentMode = .scaleAspectFit
 //            imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
+            
             mainScroll.addSubview(imageView)
             mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
             posX = posX + scrollWidth
