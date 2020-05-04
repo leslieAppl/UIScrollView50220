@@ -59,7 +59,6 @@ class P1: UIViewController {
             imageView.image = UIImage(named: img)
             imageView.contentMode = .scaleAspectFill
             imageView.clipsToBounds = true
-            
             mainScroll.addSubview(imageView)
             mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
 
@@ -137,9 +136,11 @@ extension P1 {
         }
         
 //Scroll to page after resizing the page
-        var frame = mainScroll.frame
-        frame.origin.x = scrollWidth*CGFloat(page)
-        mainScroll.scrollRectToVisible(frame, animated: true)
+        let x = scrollWidth*CGFloat(page)
+        let offset = CGPoint(x: x, y: 0)
+        mainScroll.setContentOffset(offset, animated: true)
+        
+//Reset page counter to current page
         pageCounter.currentPage = page
     }
 }

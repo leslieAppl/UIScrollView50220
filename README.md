@@ -21,23 +21,74 @@
 ## UIPageControl class
 - Calculating the page
 
+        func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            let pageWidth = mainScroll.frame.size.width
+            let getPage = round(mainScroll.contentOffset.x/pageWidth)
+            let currentPage = Int(getPage)
+            page = currentPage
+            pageCounter.currentPage = page
+        }
+
+
 ## reset the page size when rotating the screen
 - Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method. Because, rotating the screen led to change to size of scroll view. Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
 - reversing scrollWidth and scrollHeight
+
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        switch UIDevice.current.orientation {
+        case .portrait:
+            print("rotated to portrait")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        case .portraitUpsideDown:
+            print("rotated to portraitUpsideDown")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        case .landscapeLeft:
+            print("rotated to landscapeLeft")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        case .landscapeRight:
+            print("rotated to landscapeRight")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        default:
+            print("rotated to other")
+            self.scrollWidth = view.frame.size.height
+            self.scrollHeight = view.frame.size.width
+        }
+
 - Removeing subviews from scroll view
+
+        let subViews = mainScroll.subviews
+        for subView in subViews {
+            subView.removeFromSuperview()
+        }
+
 - Organizing the content area in pages
+
+        var posX: CGFloat = 0
+        
+        for img in images {
+            
+            imageView = UIImageView(frame: CGRect(x: posX, y: 0, width: scrollWidth, height: scrollHeight))
+            imageView.image = UIImage(named: img)
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            
+            mainScroll.addSubview(imageView)
+            mainScroll.contentSize = CGSize(width: scrollWidth*CGFloat(images.count), height: scrollHeight)
+            
+            posX = posX + scrollWidth
+        }
+
 - Scroll to page after resizing the page
 
-## Remove subViews from scroll view
-    let subViews = self.scrollView.subviews
-    for subview in subViews{
-        subview.removeFromSuperview()
-    }
+        let x = scrollWidth*CGFloat(page)
+        let offset = CGPoint(x: x, y: 0)
+        mainScroll.setContentOffset(offset, animated: true)
 
-## Scroll to page after resizing the page
-var frame = mainScroll.frame
-frame.origin.x = scrollWidth*CGFloat(page)
-mainScroll.scrollRectToVisible(frame, animated: true)
 
 ## zoom each page individually
 - Scroll Views may be created inside other Scroll Views
