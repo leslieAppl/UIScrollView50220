@@ -33,32 +33,6 @@
 ## reset the page size when rotating the screen
 - Catch page value before calling UIScrollViewDelegate.scrollViewDidScroll() method. Because, rotating the screen led to change to size of scroll view. Mean while automatically to trigger the scrollViewDidScroll() method to distract the value of page property
 - reversing scrollWidth and scrollHeight
-
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            print("rotated to portrait")
-            self.scrollWidth = view.frame.size.height
-            self.scrollHeight = view.frame.size.width
-        case .portraitUpsideDown:
-            print("rotated to portraitUpsideDown")
-            self.scrollWidth = view.frame.size.height
-            self.scrollHeight = view.frame.size.width
-        case .landscapeLeft:
-            print("rotated to landscapeLeft")
-            self.scrollWidth = view.frame.size.height
-            self.scrollHeight = view.frame.size.width
-        case .landscapeRight:
-            print("rotated to landscapeRight")
-            self.scrollWidth = view.frame.size.height
-            self.scrollHeight = view.frame.size.width
-        default:
-            print("rotated to other")
-            self.scrollWidth = view.frame.size.height
-            self.scrollHeight = view.frame.size.width
-        }
-
 - Removeing subviews from scroll view
 
         let subViews = mainScroll.subviews
