@@ -27,7 +27,7 @@
 - Removeing subviews from scroll view
 - Organizing the content area in pages
 - Scroll to page after resizing the page
-- Return page value after reseting the page size when rotating the screen
+
 
 ## Remove subViews from scroll view
     let subViews = self.scrollView.subviews
