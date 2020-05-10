@@ -225,24 +225,34 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="N9s-Ih-UUt"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="e7r-0H-SPC"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="XY3-my-60B">
+                                <rect key="frame" x="0.0" y="776" width="414" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="Z1C-Hu-5dC"/>
+                                </constraints>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tCS-pz-vsZ" firstAttribute="bottom" secondItem="o9x-mv-BuY" secondAttribute="bottom" id="1Yh-Nj-bSp"/>
+                            <constraint firstItem="XY3-my-60B" firstAttribute="leading" secondItem="o9x-mv-BuY" secondAttribute="leading" id="Kho-bC-hvA"/>
                             <constraint firstItem="tCS-pz-vsZ" firstAttribute="top" secondItem="o9x-mv-BuY" secondAttribute="top" id="NTO-lv-90b"/>
+                            <constraint firstItem="tCS-pz-vsZ" firstAttribute="bottom" secondItem="o9x-mv-BuY" secondAttribute="bottom" id="O72-og-M1o"/>
                             <constraint firstItem="tCS-pz-vsZ" firstAttribute="leading" secondItem="o9x-mv-BuY" secondAttribute="leading" id="QxW-qm-Thg"/>
+                            <constraint firstItem="XY3-my-60B" firstAttribute="bottom" secondItem="o9x-mv-BuY" secondAttribute="bottom" id="aX2-hZ-IYL"/>
                             <constraint firstItem="tCS-pz-vsZ" firstAttribute="trailing" secondItem="o9x-mv-BuY" secondAttribute="trailing" id="bfs-0V-5mV"/>
+                            <constraint firstItem="XY3-my-60B" firstAttribute="trailing" secondItem="o9x-mv-BuY" secondAttribute="trailing" id="sd5-eN-XW0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o9x-mv-BuY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="P2" image="pencil.circle" catalog="system" id="Pr5-Be-qeM"/>
                     <connections>
                         <outlet property="mainScroll" destination="tCS-pz-vsZ" id="6tQ-hd-uJG"/>
+                        <outlet property="pageCounter" destination="XY3-my-60B" id="D1e-5r-DmZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwK-1H-wJ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3319" y="805"/>
+            <point key="canvasLocation" x="3318.840579710145" y="804.91071428571422"/>
         </scene>
     </scenes>
     <resources>
