@@ -67,4 +67,5 @@
 ## zoom each page individually
 - Scroll Views may be created inside other Scroll Views
 
+## Adapting the content area to a new orientation
 
