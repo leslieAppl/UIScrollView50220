@@ -12,21 +12,15 @@ class P3: UIViewController {
 
     @IBOutlet weak var mainScroll: UIScrollView!
     @IBOutlet weak var descriptionView: UITextView!
-    @IBOutlet weak var contentView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //assign self location to the delegate
         descriptionView.delegate = self
+        mainScroll.delegate = self
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
         
-        view.endEditing(true)
-    }
-    
     @IBAction func saveBtnPressed(_ sender: UIButton) {
         descriptionView.endEditing(true)
     }
