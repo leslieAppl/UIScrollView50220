@@ -76,6 +76,7 @@ class P2: UIViewController {
 }
 
 extension P2: UIScrollViewDelegate {
+//MARK: - Second call when rotating
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !rotating {
             let pageWidth = mainScroll.frame.size.width
@@ -97,10 +98,12 @@ extension P2: UIScrollViewDelegate {
 }
 
 extension P2 {
+//MARK: - First call when rotating
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
         rotating = true
+        //Completion: The block of code to execute after the transition finishes.
         coordinator.animate(alongsideTransition: nil) { (context) in
             let scroll = self.imageViews[self.page].superview as! UIScrollView
             scroll.setZoomScale(1.0, animated: true)
