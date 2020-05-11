@@ -11,6 +11,7 @@
 		CE167C72245DB48E0020352E /* Z2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167C71245DB48E0020352E /* Z2VC.swift */; };
 		CE167C74245E58940020352E /* P1.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167C73245E58940020352E /* P1.swift */; };
 		CE167C76245E58AD0020352E /* P2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167C75245E58AD0020352E /* P2.swift */; };
+		CE167C7A246936E50020352E /* P3.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167C79246936E50020352E /* P3.swift */; };
 		CE369182245D0AC100817546 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369181245D0AC100817546 /* AppDelegate.swift */; };
 		CE369184245D0AC100817546 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369183245D0AC100817546 /* SceneDelegate.swift */; };
 		CE369186245D0AC100817546 /* S1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE369185245D0AC100817546 /* S1VC.swift */; };
@@ -25,6 +26,7 @@
 		CE167C71245DB48E0020352E /* Z2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Z2VC.swift; sourceTree = "<group>"; };
 		CE167C73245E58940020352E /* P1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P1.swift; sourceTree = "<group>"; };
 		CE167C75245E58AD0020352E /* P2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P2.swift; sourceTree = "<group>"; };
+		CE167C79246936E50020352E /* P3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = P3.swift; sourceTree = "<group>"; };
 		CE36917E245D0AC100817546 /* UIScrollView50220.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIScrollView50220.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE369181245D0AC100817546 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE369183245D0AC100817546 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				CE167C71245DB48E0020352E /* Z2VC.swift */,
 				CE167C73245E58940020352E /* P1.swift */,
 				CE167C75245E58AD0020352E /* P2.swift */,
+				CE167C79246936E50020352E /* P3.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 			files = (
 				CE369186245D0AC100817546 /* S1VC.swift in Sources */,
 				CE167C74245E58940020352E /* P1.swift in Sources */,
+				CE167C7A246936E50020352E /* P3.swift in Sources */,
 				CE369182245D0AC100817546 /* AppDelegate.swift in Sources */,
 				CE167C72245DB48E0020352E /* Z2VC.swift in Sources */,
 				CE369184245D0AC100817546 /* SceneDelegate.swift in Sources */,
