@@ -24,7 +24,7 @@ class P3: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         
-        mainScroll.endEditing(true)
+        view.endEditing(true)
     }
     
     @IBAction func saveBtnPressed(_ sender: UIButton) {
